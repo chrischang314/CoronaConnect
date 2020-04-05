@@ -6,7 +6,9 @@ import { BrowserRouter as Router, Route } from 'react-router-dom';
 import HomePageComponent from "./components/homepage.component"
 // import FloorComponent from "./components/floor.component"
 import DataComponent from "./components/dashboard/dashboard.component"
-import CheckInComponent from "./components/input/donationin.component"
+// import CheckInComponent from "./components/input/donationin.component"
+import CheckInComponent from "./components/input/form.component"
+
 // import DonationInComponent from "./components/input/donationin.component"
 
 

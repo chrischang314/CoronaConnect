@@ -105,15 +105,8 @@ export default function Checkout() {
       <main className={classes.layout}>
         <Paper className={classes.paper}>
           <Typography component="h1" variant="h4" align="center">
-            Checkout
+            Staff Gear Form🎒🎒
           </Typography>
-          <Stepper activeStep={activeStep} className={classes.stepper}>
-            {steps.map((label) => (
-              <Step key={label}>
-                <StepLabel>{label}</StepLabel>
-              </Step>
-            ))}
-          </Stepper>
           <React.Fragment>
             {activeStep === steps.length ? (
               <React.Fragment>
@@ -129,19 +122,20 @@ export default function Checkout() {
               <React.Fragment>
                 {getStepContent(activeStep)}
                 <div className={classes.buttons}>
-                  {activeStep !== 0 && (
-                    <Button onClick={handleBack} className={classes.button}>
-                      Back
+                    <Button
+                        variant="contained"
+                        color="primary"
+                        className={classes.button}
+                    >
+                        Add Another staff Member
                     </Button>
-                  )}
-                  <Button
-                    variant="contained"
-                    color="primary"
-                    onClick={handleNext}
-                    className={classes.button}
-                  >
-                    {activeStep === steps.length - 1 ? 'Place order' : 'Next'}
-                  </Button>
+                    <Button
+                        variant="contained"
+                        color="primary"
+                        className={classes.button}
+                    >
+                        Exit
+                    </Button>
                 </div>
               </React.Fragment>
             )}

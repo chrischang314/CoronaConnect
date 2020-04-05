@@ -4,13 +4,19 @@ import Typography from '@material-ui/core/Typography';
 import TextField from '@material-ui/core/TextField';
 import FormControlLabel from '@material-ui/core/FormControlLabel';
 import Checkbox from '@material-ui/core/Checkbox';
+//         Staff Information 📋📋
 
 export default function AddressForm() {
   return (
     <React.Fragment>
-      <Typography variant="h6" gutterBottom>
-        Staff Information 📋📋
-      </Typography>
+      <Grid container spacing={3}>
+
+        <Grid item xs={12}>
+            <Typography variant="h6" gutterBottom>
+            Staff Information 📋📋
+            </Typography>
+          </Grid>
+        </Grid>
       <Grid container spacing={3}>
         <Grid item xs={12} sm={6}>
           <TextField
@@ -50,7 +56,7 @@ export default function AddressForm() {
         </Grid>
         <Grid item xs={12} sm={6}>
           <Typography variant="body1" gutterBottom>
-            N95 Masks
+            Number of N95 Masks
           </Typography>
         </Grid>
         <Grid item xs={12} sm={6}>
@@ -67,7 +73,7 @@ export default function AddressForm() {
 
         <Grid item xs={12} sm={6}>
           <Typography variant="body1" gutterBottom>
-            Surgical Masks
+            Number of Surgical Masks
           </Typography>
         </Grid>
         <Grid item xs={12} sm={6}>
@@ -75,7 +81,7 @@ export default function AddressForm() {
             required
             id="n95masks"
             name="n95masks"
-            label="N95 Masks"
+            label="Surgical Masks"
             fullWidth
             variant="outlined"
             autoComplete=""
@@ -84,7 +90,7 @@ export default function AddressForm() {
 
         <Grid item xs={12} sm={6}>
           <Typography variant="body1" gutterBottom>
-            Gowns
+            Number of Gowns
           </Typography>
         </Grid>
         <Grid item xs={12} sm={6}>
@@ -92,7 +98,7 @@ export default function AddressForm() {
             required
             id="n95masks"
             name="n95masks"
-            label="N95 Masks"
+            label="Gowns"
             fullWidth
             variant="outlined"
             autoComplete=""
@@ -101,7 +107,7 @@ export default function AddressForm() {
 
         <Grid item xs={12} sm={6}>
           <Typography variant="body1" gutterBottom>
-            Gloves
+            Number of Gloves
           </Typography>
         </Grid>
         <Grid item xs={12} sm={6}>
@@ -109,7 +115,7 @@ export default function AddressForm() {
             required
             id="n95masks"
             name="n95masks"
-            label="N95 Masks"
+            label="Gloves"
             fullWidth
             variant="outlined"
             autoComplete=""
@@ -118,7 +124,7 @@ export default function AddressForm() {
         
         <Grid item xs={12} sm={6}>
           <Typography variant="body1" gutterBottom>
-            Face Masks
+            Number of Face Masks
           </Typography>
         </Grid>
         <Grid item xs={12} sm={6}>
@@ -126,7 +132,7 @@ export default function AddressForm() {
             required
             id="n95masks"
             name="n95masks"
-            label="N95 Masks"
+            label="Face Masks"
             fullWidth
             variant="outlined"
             autoComplete=""
