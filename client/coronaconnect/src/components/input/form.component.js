@@ -100,7 +100,6 @@ export default function Checkout() {
           <Typography variant="h6" color="inherit" noWrap>
             Company name
           </Typography>
-          
         </Toolbar>
       </AppBar>
       <main className={classes.layout}>
