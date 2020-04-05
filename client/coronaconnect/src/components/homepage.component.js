@@ -30,6 +30,17 @@ const useStyles = makeStyles((theme)=>({
     marginBottom: "4vh",
     marginLeft:"2vh",
     marginRight:"2vh"
+  },
+  paper4: {
+    padding: "3vw",
+    textAlign: "center",
+    whiteSpace: "nowrap",
+    marginTop: "3vh",
+    marginBottom: "4vh",
+    marginLeft:"2vh",
+    marginRight:"2vh",
+    color: "#FFFFFF",
+    backgroundColor: "#FFB219"
   }
 }));
 
@@ -42,16 +53,16 @@ export default function HomePageComponent(){
             {/* Title & Login */}
             <Grid container spacing={4}>
                 <Grid item xs={10}>
-                <Paper className={classes.paper3}>
+                <Paper className={classes.paper4}>
                     <Typography variant="h2" component="h2" >
                         PPE Inventory Manager Beta 😷😷
                     </Typography>
                 </Paper>
                 </Grid>
                 <Grid item xs={2}>
-                <Paper className={classes.paper3}>
+                <Paper className={classes.paper4}>
                     <Link to="/input">
-                        <Button variant="contained" color="primary">
+                        <Button variant="contained" color="secondary" disableElevation>
                             Sign in / Sign Up
                         </Button>
                     </Link>
@@ -64,7 +75,7 @@ export default function HomePageComponent(){
                 <Paper className={classes.paper3} elevation={3}>
                     <Link to="/input">
                         <Button variant="contained" color="primary">
-                            Change Inventory here. 
+                            Start logging your inventory 
                         </Button>
                     </Link>
                 </Paper>
@@ -73,7 +84,7 @@ export default function HomePageComponent(){
                 <Paper className={classes.paper3} elevation={3}>
                     <Link to="/input">
                         <Button variant="contained" color="primary">
-                            View Data Here.
+                            Track your N95 stock 
                         </Button>
                     </Link>
                 </Paper>
@@ -82,7 +93,7 @@ export default function HomePageComponent(){
                 <Paper className={classes.paper3} elevation={3}>
                     <Link to="/input">
                         <Button variant="contained" color="primary">
-                            Change Inventory here. 
+                            View Predictions 
                         </Button>
                     </Link>
                 </Paper>
@@ -96,7 +107,7 @@ export default function HomePageComponent(){
                             Join us on our jounrey to better manage PPE inventories - and save lives. 
                         </Typography>
                         <Typography variant="body1">
-                            Today, hospitals like Mass Gen face a number of extraordinarly excurciating challenges in managing a high volume of Covid Patientes. 
+                            Today, hospitals like Mass Gen face a number of extraordinarly excurciating challenges in managing a high volume of Covid Patients. 
                         </Typography>
                     </Paper>
                 </Grid>

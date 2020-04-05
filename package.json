@@ -15,5 +15,6 @@
   "bugs": {
     "url": "https://github.com/aramachandran7/CoronaConnect/issues"
   },
-  "homepage": "https://github.com/aramachandran7/CoronaConnect#readme"
+  "homepage": "https://github.com/aramachandran7/CoronaConnect#readme",
+  "dependencies": {}
 }
