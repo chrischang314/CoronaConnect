@@ -17,7 +17,7 @@ import re
 from nltk.stem import WordNetLemmatizer
 from datetime import datetime
 import spacy
-#from Extracting_email import ExtractingLib
+from Extracting_email import ExtractingLib
 nltk.download('punkt')
 nltk.download('wordnet')
 import firebase_admin
@@ -110,6 +110,9 @@ class FilterCSV:
     
   
 def runFunction(self):
+    a = ExtractingLib()
+    a.create_csv()
+    
     df = pd.read_csv('Email.csv')
     a = FilterCSV(df)    
     a.process()
