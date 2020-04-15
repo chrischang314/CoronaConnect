@@ -28,7 +28,7 @@ class ExtractingLib:
         res = mail.stripRequestedMail()
         mail.logout()
         keys = res[0].keys()
-        with open('Email.csv', 'w+') as output_file:
+        with open('/tmp/Email.csv', 'w+') as output_file:
             dict_writer = csv.DictWriter(output_file, keys)
             dict_writer.writeheader()
             dict_writer.writerows(res)
