@@ -1,0 +1,4 @@
+pandas,numpy,nltk,spacy
+firebase_admin
+datetime
+csv
