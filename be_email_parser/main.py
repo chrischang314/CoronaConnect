@@ -108,28 +108,29 @@ class FilterCSV:
     
 
     
-    
-df = pd.read_csv('Email.csv')
-a = FilterCSV(df)    
-a.process()
-a.df.to_csv('savecsv.csv')
+  
+def runFunction(self):
+    df = pd.read_csv('Email.csv')
+    a = FilterCSV(df)    
+    a.process()
+    a.df.to_csv('savecsv.csv')
 
-cred = credentials.Certificate('key.json')
-#firebase_admin.initialize_app(cred)
-db = firestore.client()
+    cred = credentials.Certificate('key.json')
+    #firebase_admin.initialize_app(cred)
+    db = firestore.client()
 
-'''f = open('json.txt','w+')
-f.write(a.requestSupplies()[0])
-f.close()'''
+    '''f = open('json.txt','w+')
+    f.write(a.requestSupplies()[0])
+    f.close()'''
 
 
-for index, row in a.df.iterrows():
-   data = {u'Name':row['Name'], u'Email':row['Email'], u'Date':row['Date'], u'Subject':row['Subject'], u'Body':row['Body']
-           ,u'Relevant info':row['relInfo'],u'Keywords':row['Keywords'],u'Supplies':row['Supplies']}
-   db.collection(u'Expected Masks').add(data)
-   #do we use that above or this below?
-   #db.collection(u'Expected Masks').document(row[index]).set(data)
-        
+    for index, row in a.df.iterrows():
+       data = {u'Name':row['Name'], u'Email':row['Email'], u'Date':row['Date'], u'Subject':row['Subject'], u'Body':row['Body']
+               ,u'Relevant info':row['relInfo'],u'Keywords':row['Keywords'],u'Supplies':row['Supplies']}
+       db.collection(u'Expected Masks').add(data)
+       #do we use that above or this below?
+       #db.collection(u'Expected Masks').document(row[index]).set(data)
+
             
             
         
