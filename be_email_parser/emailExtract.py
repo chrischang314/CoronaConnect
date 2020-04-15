@@ -7,11 +7,6 @@ Created on Sat Apr  4 17:33:58 2020
 
 import subprocess
 import sys
-def install(package):
-    subprocess.check_call([sys.executable, "-m", "pip", "install", package])
-    
-conda install package-name
-
 import outlook 
 import csv
 #set('donate', 'supplies', 'N95',)
@@ -38,8 +33,8 @@ class ExtractingLib:
             dict_writer.writeheader()
             dict_writer.writerows(res)
 
-a = ExtractingLib()
-a.create_csv()
+#a = ExtractingLib()
+#a.create_csv()
 
 
 
