@@ -3,4 +3,4 @@ numpy==1.18.2
 nltk==3.5
 spacy==1.8.2
 firebase_admin
-datetime==7.2.0	
+datetime==4.3	
