@@ -16,7 +16,7 @@ import csv
 
 class ExtractingLib:
     
-    def __init__(self,email = 'COVIDConnect20@outlook.com', pwsd = 'MITHackathon43'):
+    def __init__(self, email = 'covidconnect2020@outlook.com', pwsd = 'mithack10'):
         self.email = email
         self.pwsd = pwsd
         
