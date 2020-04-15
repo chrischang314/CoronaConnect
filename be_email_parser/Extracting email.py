@@ -5,6 +5,13 @@ Created on Sat Apr  4 17:33:58 2020
 @author: TEJAS
 """
 
+import subprocess
+import sys
+def install(package):
+    subprocess.check_call([sys.executable, "-m", "pip", "install", package])
+    
+conda install package-name
+
 import outlook 
 import csv
 #set('donate', 'supplies', 'N95',)
