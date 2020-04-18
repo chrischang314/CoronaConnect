@@ -17,13 +17,13 @@ import re
 from nltk.stem import WordNetLemmatizer
 from datetime import datetime
 import spacy
-from emailExtract import ExtractingLib
 nltk.download('punkt')
 nltk.download('wordnet')
+from outlook import Outlook
+from extractingEmail import ExtractingLib 
 import firebase_admin
 from firebase_admin import credentials
 from firebase_admin import firestore
-
 
 class FilterCSV:
     
@@ -89,6 +89,13 @@ class FilterCSV:
             return 'N/A'
 
     def __convert_datetime(self,x):
+        try: 
+            t = datetime.strptime(x[1:-1], '%d %b %Y %H:%M:%S')
+        except ValueError as v:
+            if len(v.args) > 0 and v.args[0].startswith('unconverted data remains: '):
+                x = x[1:-(len(v.args[0]) - 26)]
+            else:
+                raise x
         return datetime.strptime(x[1:-1], '%d %b %Y %H:%M:%S')
     
     def process(self):
@@ -105,41 +112,33 @@ class FilterCSV:
         if supplies:
             temp = self.df[self.df['Supplies']==supplies]
         return temp[columns].to_json(orient='records'),len(temp)
+
+nltk.download('stopwords')
+
+# code from email extracter
+a = ExtractingLib()
+a.create_csv()
+
+df = pd.read_csv('/tmp/Email.csv')
+a = FilterCSV(df)    
+a.process()
+
+a.df.to_csv('/tmp/savecsv.csv')
+
+# put stuff in firebase
+# Use a service account
+cred = credentials.Certificate('key.json')
+firebase_admin.initialize_app(cred)
+
+db = firestore.client()
+
+dfEmails = pd.read_csv('/tmp/savecsv.csv')
+
+for index, row in dfEmails.iterrows():
+    data = {u'Name':row['Name'], u'Email':row['Email'], u'Date':row['Date'], u'Subject':row['Subject'], u'Body':row['Body'], u'relInfo':row['relInfo'], u'Status':row['Status'], u'Keywords':row['Keywords'], u'Supplies':row['Supplies']}
+    db.collection(u'Expected Masks').add(data)
     
+#db.collection(u'Expected Masks').document(u'test').set({u'Name' : 'Bobby'})
 
-    
-  
-def runFunction(self):
-    a = ExtractingLib()
-    a.create_csv()
-    
-    df = pd.read_csv('Email.csv')
-    a = FilterCSV(df)    
-    a.process()
-    a.df.to_csv('savecsv.csv')
-
-    cred = credentials.Certificate('key.json')
-    #firebase_admin.initialize_app(cred)
-    db = firestore.client()
-
-    '''f = open('json.txt','w+')
-    f.write(a.requestSupplies()[0])
-    f.close()'''
-
-
-    for index, row in a.df.iterrows():
-       data = {u'Name':row['Name'], u'Email':row['Email'], u'Date':row['Date'], u'Subject':row['Subject'], u'Body':row['Body']
-               ,u'Relevant info':row['relInfo'],u'Keywords':row['Keywords'],u'Supplies':row['Supplies']}
-       db.collection(u'Expected Masks').add(data)
-       #do we use that above or this below?
-       #db.collection(u'Expected Masks').document(row[index]).set(data)
-
-            
-            
-        
-    
-    
-        
-        
-
-
+#f = open('Email.csv')
+#csv_f = csv.reader(f)
