@@ -20,7 +20,7 @@ import spacy
 nltk.download('punkt')
 nltk.download('wordnet')
 from outlook import Outlook
-from extractingEmail import ExtractingLib 
+from emailExtract import ExtractingLib 
 import firebase_admin
 from firebase_admin import credentials
 from firebase_admin import firestore
