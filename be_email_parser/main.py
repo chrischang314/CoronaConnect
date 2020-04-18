@@ -113,32 +113,33 @@ class FilterCSV:
             temp = self.df[self.df['Supplies']==supplies]
         return temp[columns].to_json(orient='records'),len(temp)
 
-nltk.download('stopwords')
+    def runFunction(self):
+        nltk.download('stopwords')
 
-# code from email extracter
-a = ExtractingLib()
-a.create_csv()
+        # code from email extracter
+        a = ExtractingLib()
+        a.create_csv()
 
-df = pd.read_csv('/tmp/Email.csv')
-a = FilterCSV(df)    
-a.process()
+        df = pd.read_csv('/tmp/Email.csv')
+        a = FilterCSV(df)    
+        a.process()
 
-a.df.to_csv('/tmp/savecsv.csv')
+        a.df.to_csv('/tmp/savecsv.csv')
 
-# put stuff in firebase
-# Use a service account
-cred = credentials.Certificate('key.json')
-firebase_admin.initialize_app(cred)
+        # put stuff in firebase
+        # Use a service account
+        cred = credentials.Certificate('key.json')
+        firebase_admin.initialize_app(cred)
 
-db = firestore.client()
+        db = firestore.client()
 
-dfEmails = pd.read_csv('/tmp/savecsv.csv')
+        dfEmails = pd.read_csv('/tmp/savecsv.csv')
 
-for index, row in dfEmails.iterrows():
-    data = {u'Name':row['Name'], u'Email':row['Email'], u'Date':row['Date'], u'Subject':row['Subject'], u'Body':row['Body'], u'relInfo':row['relInfo'], u'Status':row['Status'], u'Keywords':row['Keywords'], u'Supplies':row['Supplies']}
-    db.collection(u'Expected Masks').add(data)
-    
-#db.collection(u'Expected Masks').document(u'test').set({u'Name' : 'Bobby'})
+        for index, row in dfEmails.iterrows():
+            data = {u'Name':row['Name'], u'Email':row['Email'], u'Date':row['Date'], u'Subject':row['Subject'], u'Body':row['Body'], u'relInfo':row['relInfo'], u'Status':row['Status'], u'Keywords':row['Keywords'], u'Supplies':row['Supplies']}
+            db.collection(u'Expected Masks').add(data)
 
-#f = open('Email.csv')
-#csv_f = csv.reader(f)
+        #db.collection(u'Expected Masks').document(u'test').set({u'Name' : 'Bobby'})
+
+        #f = open('Email.csv')
+        #csv_f = csv.reader(f)
