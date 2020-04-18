@@ -112,8 +112,9 @@ class FilterCSV:
         if supplies:
             temp = self.df[self.df['Supplies']==supplies]
         return temp[columns].to_json(orient='records'),len(temp)
+   
 
-    def runFunction(self):
+def runFunction(self):
         nltk.download('stopwords')
 
         # code from email extracter
