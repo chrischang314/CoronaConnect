@@ -1,1 +1,4 @@
 node_modules
+venv/
+.idea/
+be_email_parser/credentials.json
