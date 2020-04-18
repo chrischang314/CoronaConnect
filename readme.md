@@ -6,3 +6,4 @@ Notion doc link: https://www.notion.so/CoronaConnect-Ideation-02a8eae8499b4ee894
 
 run `yarn`, then `yarn start` to run locally
 
+adam
